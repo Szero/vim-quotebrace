@@ -12,14 +12,6 @@ if !exists('g:QuoteBraceYank')
     let g:QuoteBraceYank = "<C-g>"
 endif
 
-"command! QuoteBraceSelect call quotebrace#QuoteBrace('v')
-"command! QuoteBraceYank call quotebrace#QuoteBrace('y')
-
-"inoremap <silent><C-f> <esc> :QuoteBraceSelect<CR>i
-"nnoremap <silent><C-f> :QuoteBraceSelect<CR>
-"inoremap <silent><C-g> <esc> :QuoteBraceYank<CR>i
-"nnoremap <silent><C-g> :QuoteBraceYank<CR>
-"
 execute "inoremap <silent> <Plug>QuoteBraceSelectInsert \<ESC>:call quotebrace#QuoteBrace('v','i')\<CR>"
 execute "inoremap <silent> <Plug>QuoteBraceYankInsert \<ESC>:call quotebrace#QuoteBrace('y','i')\<CR>"
 execute "nnoremap <silent> <Plug>QuoteBraceSelectNormal :call quotebrace#QuoteBrace('v','n')\<CR>"

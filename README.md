@@ -10,7 +10,7 @@ Select or yank text between all types of brackets and quotes with one key press
 2. Reload your vimrc with `:so ~/.vimrc` or restart
 3. Run `:PluginInstall`
 
-### [dein](https://github.com/Shougo/dein.vim) (new manager from author of NeoBundle)
+### [dein](https://github.com/Shougo/dein.vim) (new plugin manager from author of NeoBundle)
 
 1. Add `call dein#add('Szero/vim-quotebrace.vim')` to your vimrc file.
 2. Reload your vimrc with `:so ~/.vimrc` or restart
@@ -30,6 +30,7 @@ Reload your vimrc with `:so ~/.vimrc` or restart
 Default keybindings are: 
 
  `<C-f> (Control + F)` for selecting the text between brackets
+
  `<C-g> (Control + G)` for yanking the text between brackets
 
 Both keybinds work in insert and normal mode.
