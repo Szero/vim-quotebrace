@@ -24,8 +24,9 @@ git clone https://github.com/Szero/vim-quotebrace.git
 ```
 Reload your vimrc with `:so ~/.vimrc` or restart
 
+## Usage
 
-## Configuration
+### Keybindings
 
 Default keybindings are: 
 
@@ -33,9 +34,11 @@ Default keybindings are:
 
  `<C-g> (Control + G)` for yanking the text between brackets
 
-Both keybinds work in insert and normal mode.
+Each keybind works from insert and normal mode.
 
-If you want to change the keybindings there are two variables you can add you your ~/.vimrc:
+### Configuration
+
+If you want to change the default keybindings, there are two variables you can add you your ~/.vimrc:
 
  - `let g:QuoteBraceSelect = <your keybind>`
  - `let g:QuoteBraceYank = <your keybind>`
