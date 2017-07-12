@@ -22,7 +22,6 @@ Select or yank text between all types of brackets and quotes with one key press
 cd ~/.vim/bundle
 git clone https://github.com/Szero/vim-quotebrace.git
 ```
-Reload your vimrc with `:so ~/.vimrc` or restart
 
 ## Usage
 
