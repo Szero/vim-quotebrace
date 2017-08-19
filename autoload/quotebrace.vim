@@ -99,8 +99,5 @@ function! quotebrace#QuoteBrace(mode, editor_mode) abort
         endif
     endfor
     call s:EnterInsertOnError(a:editor_mode, l:cur_start)
-    echom l:left_match . ' ' . l:right_match
     return ''
 endfunction
-
-

@@ -1,6 +1,14 @@
 # vim-quotebrace
 
-Select or yank text between all types of brackets and quotes with a single key press
+Select or yank text between all types of brackets and quotes with a single key combination.
+
+## Rationale
+
+If we want to select or yank the text, lets say between double quotes for example, we have to
+enter normal mode and type `vi"` for selection and `yi"` for yanking. If we need to perfom same
+operations but on curly braces whe have to type `vi{` or `yi{`. This can become quite hideous if
+our text is quotes/brackets-heavy. My plugin will detect bracket and quote pairs and select/yank
+between them with single key combination either from insert or normal mode.
 
 ## Installation
 
@@ -27,7 +35,7 @@ git clone https://github.com/Szero/vim-quotebrace.git
 
 ### Keybindings
 
-Default keybindings are: 
+Default keybindings are:
 
 `<leader>s` for selecting the text between brackets
 
@@ -35,7 +43,8 @@ Default keybindings are:
 
 Leader is special key user can bind and use it in his own keybinds.
 
-If you don't have it bound already, I recommend binding it to `,` (comma) by adding this line to your vimrc:
+If you don't have it bound already, I recommend binding it to `,` (comma) by adding this line to
+your vimrc:
 
 ```vim
 let mapleader=","
