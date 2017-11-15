@@ -17,7 +17,7 @@ function! s:MatchSymbols(mode, cur_start, l_match, r_match, quotes, l_brackets, 
     let l:l_index = index(a:l_brackets + a:quotes, a:l_match)
     let l:r_index = index(a:r_brackets + a:quotes, a:r_match)
     if l:l_index >= 0 && l:r_index >= 0 && l:l_index == l:r_index
-        execute 'normal! ' . a:mode . 'i' . a:l_match
+        execute 'normal! ' . a:mode . a:l_match
         if a:mode == 'y'
             call cursor(line('.'), a:cur_start)
         endif
@@ -54,12 +54,12 @@ function! quotebrace#QuoteBrace(mode, editor_mode) abort
         endif
         if empty(l:left_match)
             let left_match = s:IterateOverSymbols(
-                \ l:quotes + l:left_brackets + l:right_brackets, l:cur_backward)
+                \ l:quotes + l:left_brackets, l:cur_backward)
             let l:cur_backward -= 1
         endif
         if empty(l:right_match)
             let right_match = s:IterateOverSymbols(
-                \ l:quotes + l:left_brackets + l:right_brackets, l:cur_forward)
+                \ l:quotes + l:right_brackets, l:cur_forward)
             let l:cur_forward += 1
         endif
 

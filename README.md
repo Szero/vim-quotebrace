@@ -39,7 +39,11 @@ Default keybindings are:
 
 `<leader>s` for selecting the text between brackets
 
+`<leader>x` for selecting the text between brackets (including the brackets)
+
 `<leader>y` for yanking the text between brackets
+
+`<leader>h` for yanking the text between brackets (including the brackets)
 
 Leader is special key user can bind and use it in his own keybinds.
 
@@ -59,10 +63,15 @@ If you want to change the default keybindings, there are two variables you can a
 ```vim
 let g:QuoteBraceSelect = "your keybind"
 
+let g:QuoteBraceSelectAll = "your keybind"
+
 let g:QuoteBraceYank = "your keybind"
+
+let g:QuoteBraceYankAll = "your keybind"
 ```
 
 ## TODO
 
-- Make algorithm recursive so it actually matches the brackets/quotes
+- ~~Make algorithm recursive so it actually matches the brackets/quotes~~
 - Add support for matching brackets/quotes pairs that span over multiple lines
+- By using `searchpair()` function there is no need for inveting algorithms
