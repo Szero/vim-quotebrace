@@ -13,13 +13,22 @@ function! s:IterateOverSymbols(symbol_list, cursor_position) abort
     return ''
 endfunction
 
-function! s:MatchSymbols(mode, cur_start, l_match, r_match, quotes, l_brackets, r_brackets) abort
+function! s:MatchSymbols(mode, editor_mode, cur_start, l_match, r_match, quotes, l_brackets, r_brackets) abort
     let l:l_index = index(a:l_brackets + a:quotes, a:l_match)
     let l:r_index = index(a:r_brackets + a:quotes, a:r_match)
     if l:l_index >= 0 && l:r_index >= 0 && l:l_index == l:r_index
-        execute 'normal! ' . a:mode . a:l_match
-        if a:mode == 'y'
-            call cursor(line('.'), a:cur_start)
+        execute 'normal! ' . a:mode . a:l_match . a:l_match
+        if a:mode == 'yi' || a:mode == 'ya'
+            if a:editor_mode == 'i'
+                call cursor(line('.'), a:cur_start + 1)
+            else
+                call cursor(line('.'), a:cur_start)
+            endif
+            if a:mode == 'yi'
+                echom "Yanked everything inside " . a:l_match . a:r_match
+            else
+                echom "Yanked stuff including the " . a:l_match . a:r_match
+            endif
         endif
         return 0
     endif
@@ -63,7 +72,7 @@ function! quotebrace#QuoteBrace(mode, editor_mode) abort
             let l:cur_forward += 1
         endif
 
-        if empty(s:MatchSymbols(a:mode, l:cur_start,
+        if empty(s:MatchSymbols(a:mode, a:editor_mode, l:cur_start,
             \ l:left_match, l:right_match, l:quotes, l:left_brackets, l:right_brackets))
             return ''
         endif
@@ -79,7 +88,7 @@ function! quotebrace#QuoteBrace(mode, editor_mode) abort
             for j in range(l:cur_forward, l:line_length)
                 let l:match = s:IterateOverSymbols(
                     \ [l:right_quote_brackets[index(l:left_quote_brackets, l:left_match)]], j)
-                if empty(s:MatchSymbols(a:mode, l:cur_start,
+                if empty(s:MatchSymbols(a:mode, a:editor_mode, l:cur_start,
                     \ l:left_match, l:match, l:quotes, l:left_brackets, l:right_brackets))
                     return ''
                 endif
@@ -91,7 +100,7 @@ function! quotebrace#QuoteBrace(mode, editor_mode) abort
             for j in range(l:cur_backward, 0, -1)
                 let l:match = s:IterateOverSymbols(
                     \ [l:left_quote_brackets[index(l:right_quote_brackets, l:right_match)]], j)
-                if empty(s:MatchSymbols(a:mode, l:cur_start,
+                if empty(s:MatchSymbols(a:mode, a:editor_mode, l:cur_start,
                     \ l:match, l:right_match, l:quotes, l:left_brackets, l:right_brackets))
                     return ''
                 endif

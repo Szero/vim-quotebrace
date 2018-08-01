@@ -58,7 +58,7 @@ Each keybind works from insert and normal mode.
 
 ### Configuration
 
-If you want to change the default keybindings, there are two variables you can add you your vimrc:
+If you want to change the default keybindings, there are four variables you can add you your vimrc:
 
 ```vim
 let g:QuoteBraceSelect = "your keybind"
@@ -72,6 +72,5 @@ let g:QuoteBraceYankAll = "your keybind"
 
 ## TODO
 
-- ~~Make algorithm recursive so it actually matches the brackets/quotes~~
 - Add support for matching brackets/quotes pairs that span over multiple lines
 - By using `searchpair()` function there is no need for inveting algorithms
