@@ -17,7 +17,7 @@ function! s:MatchSymbols(mode, editor_mode, cur_start, l_match, r_match, quotes,
     let l:l_index = index(a:l_brackets + a:quotes, a:l_match)
     let l:r_index = index(a:r_brackets + a:quotes, a:r_match)
     if l:l_index >= 0 && l:r_index >= 0 && l:l_index == l:r_index
-        execute 'normal! ' . a:mode . a:l_match . a:l_match
+        execute 'normal! ' . a:mode . a:l_match
         if a:mode == 'yi' || a:mode == 'ya'
             if a:editor_mode == 'i'
                 call cursor(line('.'), a:cur_start + 1)
